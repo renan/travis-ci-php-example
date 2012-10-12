@@ -23,7 +23,7 @@ env:
 
 # execute any number of scripts before the test run, custom env's are available as variables
 before_script:
-  - cat /home/travis/.phpenv/versions/5.2.17/pear/File/Iterator/Autoload.php
+  - phpunit --version
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS hello_world_test;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'pgsql' ]; then psql -c 'create database hello_world_test;' -U postgres; fi"
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'create database IF NOT EXISTS hello_world_test;' -uroot; fi"
